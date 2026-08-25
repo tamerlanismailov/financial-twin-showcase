@@ -1,5 +1,10 @@
 # Financial Twin
 
+[English](README.md) | [Русский](README.ru.md)
+
+> **Interface language:** Russian  
+> Financial Twin is currently designed for a Russian-speaking audience.
+
 **Personal finance assistant built as a Telegram Mini App.**
 
 Financial Twin is a full-stack fintech product for managing everyday personal finances directly inside Telegram.
