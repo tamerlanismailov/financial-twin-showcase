@@ -1,18 +1,50 @@
-# Financial Twin
+<div align="center">
 
-[English](README.md) | [Русский](README.ru.md)
+<h1>Financial Twin</h1>
+
+<p>
+  <strong>Personal finance assistant built as a Telegram Mini App.</strong>
+</p>
+
+<p>
+  Track income, expenses, balance, financial goals and analytics directly inside Telegram.
+</p>
+
+<p>
+  <strong>MVP v0.1.0</strong> · Production Deployment · Russian-speaking market
+</p>
+
+<p>
+  <code>Python</code>
+  <code>FastAPI</code>
+  <code>PostgreSQL</code>
+  <code>SQLAlchemy</code>
+  <code>JavaScript</code>
+  <code>Nginx</code>
+</p>
+
+<p>
+  <a href="README.md"><strong>English</strong></a>
+  ·
+  <a href="README.ru.md">Русский</a>
+</p>
+
+<br>
+
+<img
+  src="assets/home.png"
+  alt="Financial Twin — personal finance Telegram Mini App"
+  width="390"
+/>
+
+</div>
+
+<br>
 
 > **Interface language:** Russian  
 > Financial Twin is currently designed for a Russian-speaking audience.
 
-**Personal finance assistant built as a Telegram Mini App.**
-
-Financial Twin is a full-stack fintech product for managing everyday personal finances directly inside Telegram.
-
-It combines income and expense tracking, balance management, financial goals, analytics and account management in a single interface.
-
-> This repository is a public showcase of the project.  
-> Production source code, credentials, infrastructure secrets and user data are intentionally not included.
+> This repository is a public showcase of the project. Production source code, credentials, infrastructure secrets and user data are intentionally not included.
 
 ---
 
