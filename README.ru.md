@@ -34,7 +34,7 @@
 <img
   src="assets/home.png"
   alt="Financial Twin — Telegram Mini App для управления личными финансами"
-  width="390"
+  width="340"
 />
 
 </div>
