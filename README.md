@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <strong>MVP v0.1.0</strong> · Production Deployment · Russian-speaking market
+  <strong>MVP v0.1.0</strong> · Deployed to production · Russian-speaking audience
 </p>
 
 <p>
@@ -34,7 +34,7 @@
 <img
   src="assets/home.png"
   alt="Financial Twin — personal finance Telegram Mini App"
-  width="390"
+  width="340"
 />
 
 </div>
