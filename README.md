@@ -193,20 +193,37 @@ Current implementation includes:
 
 ---
 
-## Screenshots
+## Product Preview
 
-Product screenshots will be added to this repository to demonstrate the Financial Twin interface and main user flows.
+Financial Twin is designed as a mobile-first Telegram Mini App with a dark interface and a consistent visual system across the main personal finance flows.
 
-Planned showcase screens:
+### Dashboard
 
-- Home dashboard
-- Expenses
-- Income
-- Analytics
-- Calendar
-- Financial goal
-- Onboarding
-- Profile and account management
+<p align="center">
+  <img src="assets/home.png" alt="Financial Twin home dashboard" width="300">
+  <img src="assets/home-insight.png" alt="Financial Twin financial insight" width="300">
+</p>
+
+The dashboard provides a quick overview of the user's current balance, monthly spending, financial goal progress and personalized financial insight.
+
+### Everyday Finance
+
+<p align="center">
+  <img src="assets/expenses.png" alt="Financial Twin expenses" width="250">
+  <img src="assets/income.png" alt="Financial Twin income" width="250">
+  <img src="assets/analytics.png" alt="Financial Twin analytics" width="250">
+</p>
+
+Users can manage expenses and income by category, review transaction history and analyze the structure of their spending.
+
+### Analytics & Account
+
+<p align="center">
+  <img src="assets/calendar.png" alt="Financial Twin financial calendar" width="300">
+  <img src="assets/profile.png" alt="Financial Twin profile" width="300">
+</p>
+
+The financial calendar connects transactions to specific dates, while the profile section provides goal configuration and account management.
 
 ---
 
