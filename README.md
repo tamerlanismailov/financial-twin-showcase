@@ -56,11 +56,13 @@ Financial Twin reached a working production MVP and closed-beta stage.
 
 The project went through the full product lifecycle: product design, implementation, production deployment, security hardening, privacy and consent flows, analytics, internal QA, user testing and initial product validation.
 
-Active feature development and user acquisition are currently paused. After the MVP and initial user testing, a feature freeze was introduced while the product direction and further development priorities are being reassessed.
+Active feature development and user acquisition are currently paused.
+
+After completing the MVP, production deployment, internal QA and initial user validation, a feature freeze was introduced while the product direction and further development priorities are being reassessed.
 
 The production service is scheduled to be taken offline on **November 19, 2026** as part of a controlled preservation process and infrastructure cost reduction.
 
-The project is being preserved in a recoverable state, including:
+The project is being retained in a recoverable state, including:
 
 - Source code and complete Git history
 - Database schemas and migrations
@@ -90,9 +92,10 @@ The product was built around a simple personal finance workflow inside Telegram:
 - Explore transaction history
 - Use a financial calendar
 - Receive financial insights
+- Evaluate planned purchases
 - Manage account and privacy settings
 
-The goal was to make basic personal finance tracking accessible without requiring users to install a separate native application.
+The goal was to make personal finance tracking and basic financial decision support accessible directly inside Telegram without requiring users to install a separate native application.
 
 ---
 
@@ -109,6 +112,14 @@ The goal was to make basic personal finance tracking accessible without requirin
 - Transaction history
 - Calendar-based finance overview
 - Personalized financial insights
+
+### Financial Decision Support
+
+Financial Twin also includes the **“Can I afford it?”** scenario.
+
+The feature is designed to help users evaluate a planned purchase and understand how that purchase may affect their remaining financial cushion.
+
+This represents a shift from simple transaction tracking toward helping users make everyday financial decisions.
 
 ### Telegram Integration
 
@@ -144,7 +155,7 @@ The goal was to make basic personal finance tracking accessible without requirin
 
 ## Analytics & Product Instrumentation
 
-Financial Twin includes a lightweight internal analytics system designed to support product validation and user behavior analysis.
+Financial Twin includes an internal analytics system designed to support product validation and user behavior analysis.
 
 Implemented capabilities include:
 
@@ -155,7 +166,7 @@ Implemented capabilities include:
 - User journey instrumentation
 - Activation analysis
 - Retention analysis support
-- Configurable analytics data retention
+- Analytics data retention rules
 
 Analytics were introduced to support real product experiments rather than only technical monitoring.
 
@@ -206,7 +217,7 @@ FastAPI / Uvicorn
 PostgreSQL
 ```
 
-The production environment was deployed on a Linux VPS and operated through a conventional reverse-proxy and application-service architecture.
+The production environment was deployed on a Linux VPS and operated through a reverse-proxy and application-service architecture.
 
 ---
 
@@ -268,7 +279,7 @@ Sensitive production information is intentionally excluded from this public repo
 
 ## Privacy & Data Lifecycle
 
-Financial Twin includes a dedicated privacy and account deletion workflow.
+Financial Twin includes dedicated privacy, consent and account deletion mechanisms.
 
 The implementation covers:
 
@@ -276,13 +287,14 @@ The implementation covers:
 - Privacy policy version tracking
 - Consent version tracking
 - Terms version tracking
+- Product analytics consent
 - Account deletion requests
 - Deletion state management
 - Account incarnation identifiers
 - Separation of operational data and deletion audit records
 - Retention rules for analytics data
 
-The deletion ledger was designed separately from the main application data so that deletion events could remain auditable without retaining the user's deleted operational finance data.
+The deletion ledger was designed separately from the main application data so that deletion events could remain auditable without retaining deleted operational finance data.
 
 ---
 
@@ -303,11 +315,10 @@ The project also covers:
 - Responsive mobile layouts
 - Secure secret management
 - User ownership validation
-- Analytics instrumentation
+- Product analytics instrumentation
 - Privacy and deletion workflows
 - Infrastructure configuration
-- Automated backup preparation
-- Recovery procedures
+- Backup and recovery preparation
 - Production deployment workflow
 - Internal QA before closed beta
 
@@ -328,6 +339,8 @@ Financial Twin was designed as a mobile-first Telegram Mini App with a dark inte
 
 The dashboard provides a quick overview of the user's current balance, monthly spending, financial goal progress and personalized financial insight.
 
+It also includes the **“Can I afford it?”** scenario — a decision-support feature designed to help users evaluate a planned purchase and understand how it may affect their remaining financial cushion.
+
 ### Everyday Finance
 
 <p align="center">
@@ -338,14 +351,36 @@ The dashboard provides a quick overview of the user's current balance, monthly s
 
 Users can manage expenses and income by category, review transaction history and analyze the structure of their spending.
 
-### Analytics & Account
+### Financial Calendar & Profile
 
 <p align="center">
   <img src="assets/calendar.png" alt="Financial Twin financial calendar" width="300">
   <img src="assets/profile.png" alt="Financial Twin profile" width="300">
 </p>
 
-The financial calendar connects transactions to specific dates, while the profile section provides goal configuration, privacy controls and account management.
+The financial calendar connects transactions to specific dates, while the profile section allows users to configure monthly income, manage their financial goal and update account settings.
+
+### Privacy & Data Controls
+
+<p align="center">
+  <img src="assets/privacy.png" alt="Financial Twin privacy and consent settings" width="300">
+  <img src="assets/account-deletion.png" alt="Financial Twin account deletion controls" width="300">
+</p>
+
+Financial Twin includes dedicated privacy and data-management controls directly inside the application.
+
+Users can access:
+
+- Personal data processing documentation
+- Data processing consent
+- Terms of use
+- Financial disclaimer
+- Product analytics consent
+- Account deletion controls
+
+Product analytics are optional and can be disabled by the user.
+
+The account deletion flow allows users to remove their profile, finance records, financial goal and associated operational data.
 
 ---
 
@@ -383,7 +418,9 @@ Feature Freeze
 Preservation
 ```
 
-The project was not stopped at the prototype stage. It reached production, was used in real-world testing and generated product feedback that informed the decision to pause further development.
+The project was not stopped at the prototype stage.
+
+It reached production, was used in real-world testing and generated product feedback that informed the decision to pause further development.
 
 ---
 
@@ -395,7 +432,7 @@ The project included:
 
 - Closed-beta testing
 - Real-user feedback
-- Acquisition experiments
+- User acquisition experiments
 - Activation measurement
 - Retention observation
 - Product analytics
@@ -411,7 +448,7 @@ Rather than continuing feature development without sufficient validation, the pr
 
 Financial Twin is being preserved so that development can potentially be resumed in the future without rebuilding the project from scratch.
 
-Preservation includes:
+The preservation process includes:
 
 - Source code archive
 - Complete Git history
@@ -423,7 +460,7 @@ Preservation includes:
 - Infrastructure recovery information
 - Restore verification
 
-The preservation process is intended to reduce recurring infrastructure costs while retaining the technical and product work completed during development.
+The purpose of preservation is to reduce recurring infrastructure costs while retaining the technical and product work completed during development.
 
 ---
 
@@ -473,7 +510,8 @@ Financial Twin demonstrates experience across both product development and engin
 - Instrumenting product analytics
 - Deploying and operating a production application
 - Designing backup and recovery procedures
-- Running user validation experiments
+- Running real-user product validation
+- Analyzing activation and retention
 - Making product decisions based on real feedback
 - Preserving a production project in a recoverable state
 
