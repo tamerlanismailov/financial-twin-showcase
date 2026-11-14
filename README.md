@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <strong>MVP v0.1.0</strong> · Deployed to production · Russian-speaking audience
+  <strong>MVP v0.1.0</strong> · Feature Frozen · Preservation in Progress · Russian-speaking audience
 </p>
 
 <p>
@@ -42,27 +42,57 @@
 <br>
 
 > **Interface language:** Russian  
-> Financial Twin is currently designed for a Russian-speaking audience.
+> Financial Twin was designed primarily for a Russian-speaking audience.
 
 > This repository is a public showcase of the project. Production source code, credentials, infrastructure secrets and user data are intentionally not included.
 
 ---
 
+## Project Status
+
+**MVP v0.1.0 · Feature Frozen · Preservation in Progress**
+
+Financial Twin reached a working production MVP and closed-beta stage.
+
+The project went through the full product lifecycle: product design, implementation, production deployment, security hardening, privacy and consent flows, analytics, internal QA, user testing and initial product validation.
+
+Active feature development and user acquisition are currently paused. After the MVP and initial user testing, a feature freeze was introduced while the product direction and further development priorities are being reassessed.
+
+The production service is scheduled to be taken offline on **November 19, 2026** as part of a controlled preservation process and infrastructure cost reduction.
+
+The project is being preserved in a recoverable state, including:
+
+- Source code and complete Git history
+- Database schemas and migrations
+- Production architecture and deployment documentation
+- Backup and recovery artifacts
+- Security and privacy implementation
+- Analytics infrastructure
+- Operational and restoration procedures
+
+The public repository will remain available as a **product and engineering showcase** after the production service is taken offline.
+
+Financial Twin may be resumed, redesigned or developed further in the future based on new product hypotheses, available resources and additional validation.
+
+---
+
 ## Product Overview
 
-Financial Twin was developed as a complete product — from product logic and UI to backend architecture, database design, security, deployment and production infrastructure.
+Financial Twin was developed as a complete digital product — from product logic and UI/UX to backend architecture, database design, security, analytics, deployment and production infrastructure.
 
-The current MVP focuses on the core personal finance workflow:
+The product was built around a simple personal finance workflow inside Telegram:
 
-- Income tracking
-- Expense tracking
-- Current balance
-- Financial goals
-- Analytics
-- Transaction history
-- Calendar
-- Onboarding
-- Account and privacy management
+- Record income
+- Record expenses
+- Monitor current balance
+- Track a financial goal
+- Review monthly analytics
+- Explore transaction history
+- Use a financial calendar
+- Receive financial insights
+- Manage account and privacy settings
+
+The goal was to make basic personal finance tracking accessible without requiring users to install a separate native application.
 
 ---
 
@@ -72,26 +102,62 @@ The current MVP focuses on the core personal finance workflow:
 
 - Income management
 - Expense management
+- Category-based transaction tracking
 - Automatic balance calculation
-- Financial goals
+- Financial goals and progress tracking
 - Monthly analytics
 - Transaction history
 - Calendar-based finance overview
+- Personalized financial insights
 
 ### Telegram Integration
 
 - Telegram Mini App interface
-- Telegram user authentication
+- Telegram `initData` authentication validation
+- Server-side Telegram identity verification
 - Protected API requests
 - User-specific data access
+- Telegram-aware navigation
+- Telegram start parameter support for acquisition attribution
+
+### Onboarding
+
+- Server-side onboarding state
+- Initial income setup
+- Optional financial goal setup
+- Resume support for incomplete onboarding
+- Compatibility with existing users
+- Validation and error handling
 
 ### Account & Privacy
 
-- User onboarding
 - Account management
 - Personal data isolation
-- Account deletion flow
-- Privacy controls
+- Privacy consent flow
+- Consent and policy version tracking
+- Self-service account deletion
+- Deletion workflow state tracking
+- Separate deletion audit ledger
+- Account incarnation tracking
+
+---
+
+## Analytics & Product Instrumentation
+
+Financial Twin includes a lightweight internal analytics system designed to support product validation and user behavior analysis.
+
+Implemented capabilities include:
+
+- Analytics sessions
+- Product events
+- Acquisition source tracking
+- Telegram `start_param` attribution
+- User journey instrumentation
+- Activation analysis
+- Retention analysis support
+- Configurable analytics data retention
+
+Analytics were introduced to support real product experiments rather than only technical monitoring.
 
 ---
 
@@ -113,6 +179,8 @@ FastAPI
    ├── Authentication
    ├── Business Logic
    ├── Validation
+   ├── Analytics
+   ├── Privacy / Consent
    └── User Isolation
    │
    ▼
@@ -138,6 +206,8 @@ FastAPI / Uvicorn
 PostgreSQL
 ```
 
+The production environment was deployed on a Linux VPS and operated through a conventional reverse-proxy and application-service architecture.
+
 ---
 
 ## Tech Stack
@@ -160,11 +230,13 @@ PostgreSQL
 
 ### Infrastructure
 
-- Linux
+- Ubuntu Linux
 - Nginx
 - Uvicorn
+- systemd
 - VPS
 - HTTPS
+- Let's Encrypt
 - Git
 - GitHub
 
@@ -172,11 +244,12 @@ PostgreSQL
 
 ## Security
 
-Security is treated as part of the product architecture rather than an afterthought.
+Security was treated as part of the product architecture rather than an afterthought.
 
 Implemented practices include:
 
 - Telegram authentication validation
+- Server-side identity verification
 - Protected API endpoints
 - User data isolation
 - Resource ownership checks
@@ -186,53 +259,65 @@ Implemented practices include:
 - HTTPS
 - Privacy controls
 - Account deletion flow
+- Versioned consent handling
+- Separate append-only deletion audit ledger
 
 Sensitive production information is intentionally excluded from this public repository.
 
 ---
 
+## Privacy & Data Lifecycle
+
+Financial Twin includes a dedicated privacy and account deletion workflow.
+
+The implementation covers:
+
+- Explicit privacy consent
+- Privacy policy version tracking
+- Consent version tracking
+- Terms version tracking
+- Account deletion requests
+- Deletion state management
+- Account incarnation identifiers
+- Separation of operational data and deletion audit records
+- Retention rules for analytics data
+
+The deletion ledger was designed separately from the main application data so that deletion events could remain auditable without retaining the user's deleted operational finance data.
+
+---
+
 ## Engineering Highlights
 
-Financial Twin includes more than the core finance functionality.
+Financial Twin includes significantly more than the visible finance interface.
 
 The project also covers:
 
 - Database migrations and schema evolution
 - Backend validation and error handling
 - Loading, empty, error, success and disabled UI states
-- Telegram-specific navigation and authentication
-- Mobile keyboard and safe-area handling
+- Network error handling
+- Telegram-specific authentication and navigation
+- Mobile keyboard handling
+- Safe-area support
+- Long amount and long text handling
+- Responsive mobile layouts
+- Secure secret management
+- User ownership validation
+- Analytics instrumentation
+- Privacy and deletion workflows
 - Infrastructure configuration
-- Backup and recovery preparation
+- Automated backup preparation
+- Recovery procedures
 - Production deployment workflow
 - Internal QA before closed beta
 
----
-
-## Project Status
-
-**MVP v0.1.0**
-
-The MVP includes the complete core finance workflow and has been deployed to production infrastructure.
-
-Current implementation includes:
-
-- Core income and expense management
-- Balance calculation
-- Financial goals
-- Analytics
-- Calendar
-- Telegram authentication
-- User onboarding
-- User data isolation
-- Privacy and deletion flows
-- Production infrastructure
+The MVP completed a full internal QA cycle before closed-beta use.
 
 ---
 
 ## Product Preview
 
-Financial Twin is designed as a mobile-first Telegram Mini App with a dark interface and a consistent visual system across the main personal finance flows.
+Financial Twin was designed as a mobile-first Telegram Mini App with a dark interface and a consistent visual system across the main personal finance flows.
 
 ### Dashboard
 
@@ -260,7 +345,85 @@ Users can manage expenses and income by category, review transaction history and
   <img src="assets/profile.png" alt="Financial Twin profile" width="300">
 </p>
 
-The financial calendar connects transactions to specific dates, while the profile section provides goal configuration and account management.
+The financial calendar connects transactions to specific dates, while the profile section provides goal configuration, privacy controls and account management.
+
+---
+
+## Product Lifecycle
+
+Financial Twin progressed through multiple product and engineering stages:
+
+```text
+Idea
+  ↓
+Product Concept
+  ↓
+Prototype
+  ↓
+MVP Development
+  ↓
+Production Deployment
+  ↓
+Security Hardening
+  ↓
+Privacy & Account Deletion
+  ↓
+Internal QA
+  ↓
+Closed Beta
+  ↓
+Analytics & Product Instrumentation
+  ↓
+User Acquisition Experiments
+  ↓
+Product Validation
+  ↓
+Feature Freeze
+  ↓
+Preservation
+```
+
+The project was not stopped at the prototype stage. It reached production, was used in real-world testing and generated product feedback that informed the decision to pause further development.
+
+---
+
+## Product Validation
+
+After the MVP was completed, Financial Twin moved into early user validation.
+
+The project included:
+
+- Closed-beta testing
+- Real-user feedback
+- Acquisition experiments
+- Activation measurement
+- Retention observation
+- Product analytics
+- Evaluation of product-market fit hypotheses
+
+The validation phase showed that further product work should focus not simply on adding more features, but on strengthening the core recurring value and the reason for users to return regularly.
+
+Rather than continuing feature development without sufficient validation, the project was placed into a feature freeze.
+
+---
+
+## Preservation & Recovery
+
+Financial Twin is being preserved so that development can potentially be resumed in the future without rebuilding the project from scratch.
+
+Preservation includes:
+
+- Source code archive
+- Complete Git history
+- Database schema backups
+- Alembic migration state
+- Production backup artifacts
+- External audit-ledger schema
+- Deployment documentation
+- Infrastructure recovery information
+- Restore verification
+
+The preservation process is intended to reduce recurring infrastructure costs while retaining the technical and product work completed during development.
 
 ---
 
@@ -270,13 +433,16 @@ The main Financial Twin development repository is private.
 
 This public repository exists to demonstrate:
 
-- The product concept
+- Product concept
 - Product functionality
 - System architecture
 - Technology stack
 - Engineering approach
+- Security approach
+- Product analytics
 - UI/UX
 - Development scope
+- Product lifecycle
 
 It intentionally does **not** contain:
 
@@ -289,18 +455,27 @@ It intentionally does **not** contain:
 - User data
 - Production logs
 - Internal production source code
+- Sensitive operational information
 
 ---
 
-## Repository Roadmap
+## What This Project Demonstrates
 
-This showcase will be expanded with:
+Financial Twin demonstrates experience across both product development and engineering:
 
-- Product screenshots
-- Architecture diagrams
-- Additional technical documentation
-- Product development history
-- Selected engineering decisions
+- Turning a product idea into a working MVP
+- Designing a Telegram Mini App
+- Building a REST backend
+- Designing and evolving a PostgreSQL database
+- Implementing authentication and user isolation
+- Managing database migrations
+- Building privacy and deletion workflows
+- Instrumenting product analytics
+- Deploying and operating a production application
+- Designing backup and recovery procedures
+- Running user validation experiments
+- Making product decisions based on real feedback
+- Preserving a production project in a recoverable state
 
 ---
 
@@ -308,6 +483,6 @@ This showcase will be expanded with:
 
 **Tamerlan Ismailov**
 
-Business Informatics student focused on backend development and building digital products.
+Business Informatics student interested in business analysis, product development, backend systems and building digital products.
 
 [GitHub Profile](https://github.com/tamerlanismailov)
